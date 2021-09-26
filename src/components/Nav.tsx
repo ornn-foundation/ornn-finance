@@ -1,10 +1,10 @@
 import React, { ReactElement } from "react";
 import Button from "../widget/Button";
 import Logo from "../widget/Logo";
-import { AiOutlineDisconnect } from "react-icons/ai";
+import { IoWallet, IoSettings } from "react-icons/io5";
 import Space from "../widget/Space";
 import Dropdown from "../widget/Dropdown";
-
+import data from "../data/ornn.json";
 interface Props {}
 
 export default function Nav({}: Props): ReactElement {
@@ -15,13 +15,20 @@ export default function Nav({}: Props): ReactElement {
           <Logo scale={0.7} />
           <span className="space"></span>
           <Space space={12}>
-            <Dropdown></Dropdown>
+            <Button
+              type="link"
+              color="#fdecef"
+              shape="circle"
+              textColor="#ff647f"
+              icon={<IoSettings />}
+            ></Button>
+            <Dropdown menu={data.listChain}></Dropdown>
             <Button
               slot="start"
               shape="round"
               textColor="#ffffff"
               size="small"
-              icon={<AiOutlineDisconnect />}
+              icon={<IoWallet />}
             >
               Connect
             </Button>

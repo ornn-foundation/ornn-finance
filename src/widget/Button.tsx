@@ -42,14 +42,14 @@ export default function Button({
 
   return (
     <>
-      <button onClick={onClick}>
+      <button className="ornn-bt no-copy" onClick={onClick}>
         {slot === "start" && <span className="icon start">{icon}</span>}
         {icon && !slot && <span className="icon start">{icon}</span>}
         {children}
         {slot === "end" && <span className="icon end">{icon}</span>}
       </button>
       <style jsx>{`
-        button {
+        .ornn-bt {
           font-size: ${size === "large"
             ? "20px"
             : size === "small"
@@ -67,6 +67,7 @@ export default function Button({
               : "initial"
             : "#ff92a5"};
           color: ${textColor ? textColor : contrastYIQ(color || "#ffffff")};
+          transition: 0.3s;
           font-weight: 500;
           margin-left: 0px;
           margin-right: 0px;
@@ -75,9 +76,9 @@ export default function Button({
           border-width: initial;
           border-color: initial;
           box-sizing: border-box;
-          height: 2.8em;
+          height: ${shape === "circle" ? "42px" : "2.8em"};
           display: block;
-          width: ${width} || fit-content;
+          width: ${shape === "circle" ? "42px" : width || "fit-content"};
           clear: both;
           display: flex;
           flex-direction: row;
@@ -85,15 +86,11 @@ export default function Button({
           align-items: center;
           contain: content;
           vertical-align: -webkit-baseline-middle;
-          -webkit-user-select: none; /* Chrome all / Safari all */
-          -moz-user-select: none; /* Firefox all */
-          -ms-user-select: none; /* IE 10+ */
-          user-select: none; /* Likely future */
         }
-        button:hover {
+        .ornn-bt:hover {
           background-color: ${type === "link" ? color : "#ff647f"};
         }
-        button:active {
+        .ornn-bt:active {
           background-color: ${type === "link" ? "" : "#ff3659"};
           opacity: 0.9;
         }
@@ -106,7 +103,7 @@ export default function Button({
           justify-content: center;
         }
         .start {
-          margin-right: 4px;
+          margin-right: ${children && "4px"};
         }
         .end {
           margin-left: 4px;

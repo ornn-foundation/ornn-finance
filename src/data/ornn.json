@@ -1,0 +1,24 @@
+{
+  "listChain": [
+    {
+      "id": 0,
+      "title": "Ethereum",
+      "icon": "/img/ethereum-logo.png"
+    },
+    {
+      "id": 1,
+      "title": "BSC Mainnet",
+      "icon": "/img/binance-logo.png"
+    },
+    {
+      "id": 2,
+      "title": "Energy Web",
+      "icon": "/img/energy-web-logo.png"
+    },
+    {
+      "id": 3,
+      "title": "Bitkub",
+      "icon": "/img/bitkub-logo.png"
+    }
+  ]
+}

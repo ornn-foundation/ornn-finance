@@ -7,6 +7,7 @@ import List from "./List";
 interface Menu {
   id: number;
   title: string;
+  icon: string;
 }
 interface Props {
   active?: number;
@@ -19,7 +20,7 @@ interface Props {
     | ReactElement[];
 }
 
-export default function Dropdown({ children }: Props): ReactElement {
+export default function Dropdown({ menu }: Props): ReactElement {
   const [toggle, setToggle] = React.useState(false);
   const wrapperRef = React.useRef(null);
   const { outside } = useOutsideAlerter(wrapperRef);
@@ -27,9 +28,8 @@ export default function Dropdown({ children }: Props): ReactElement {
   const onDropdown = () => {
     setToggle(!toggle);
   };
-  
+
   React.useEffect(() => {
-    console.log(outside);
     if (!outside) setToggle(outside);
     return () => {};
   }, [outside]);
@@ -48,20 +48,23 @@ export default function Dropdown({ children }: Props): ReactElement {
         >
           Ethereum
         </Button>
-        {toggle && (
-          <div className="ornn-menu-dropdown">
-            <List>
-              <List.Item>Menu 1</List.Item>
-              <List.Item>Menu 2</List.Item>
-            </List>
-          </div>
-        )}
+        <div className="ornn-menu-dropdown">
+          <List>
+            {menu.map((item) => (
+              <List.Item color="#fdecef" icon={item.icon} key={item.id}>
+                {item.title}
+              </List.Item>
+            ))}
+          </List>
+        </div>
       </div>
       <style jsx>{`
         .ornn-dropdown {
           position: relative;
         }
         .ornn-menu-dropdown {
+          display: ${toggle ? "block" : "none"};
+          transition: 0.3s;
           position: absolute;
           min-width: 194px;
           background-color: #ffffff;
