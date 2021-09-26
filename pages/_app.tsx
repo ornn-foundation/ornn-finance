@@ -1,11 +1,11 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import { AppProps } from "next/app";
 import { getStorage, KEY_STORAGE } from "../src/utils/storage";
 import { Context, initialState, Mode } from "../src/lib/context";
 import { reducer } from "../src/lib/reducers";
 import "../public/styles/global.css";
 
-function App({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps }: AppProps): ReactElement {
   const [state, dispatch] = React.useReducer(reducer, initialState);
   const value = { state, dispatch };
   React.useEffect(() => {
@@ -23,5 +23,3 @@ function App({ Component, pageProps }: AppProps) {
     </Context.Provider>
   );
 }
-
-export default App;

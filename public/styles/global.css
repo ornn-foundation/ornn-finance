@@ -8,9 +8,11 @@ body {
 
 * {
   box-sizing: border-box;
+  font: 400 18px/24px Google Sans, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 body {
+  color: #000000d9;
 }
 
 .dark {
