@@ -1,24 +1,28 @@
 {
-  "listChain": [
+  "chain": [
     {
       "id": 0,
       "title": "Ethereum",
-      "icon": "/img/ethereum-logo.png"
+      "icon": "/img/ethereum-logo.png",
+      "symbol": "ETH"
     },
     {
       "id": 1,
       "title": "BSC Mainnet",
-      "icon": "/img/binance-logo.png"
+      "icon": "/img/binance-logo.png",
+      "symbol": "BNB"
     },
     {
       "id": 2,
       "title": "Energy Web",
-      "icon": "/img/energy-web-logo.png"
+      "icon": "/img/energy-web-logo.png",
+      "symbol": "EWT"
     },
     {
       "id": 3,
       "title": "Bitkub",
-      "icon": "/img/bitkub-logo.png"
+      "icon": "/img/bitkub-logo.png",
+      "symbol": "KUB"
     }
   ]
 }

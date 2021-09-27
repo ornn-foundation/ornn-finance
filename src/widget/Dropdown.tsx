@@ -1,38 +1,44 @@
 import React, { ReactElement } from "react";
 import Button from "./Button";
-import { IoWallet } from "react-icons/io5";
 import { useOutsideAlerter } from "../utils/useOutsideAlerter";
 import List from "./List";
+import { Children } from "../interface/children";
+import { Menu } from "../interface";
 
-interface Menu {
-  id: number;
-  title: string;
-  icon: string;
-}
-interface Props {
-  active?: number;
+interface Props extends Children {
+  active?: number | string;
   menu?: Menu[];
-  children?:
-    | string
-    | JSX.Element
-    | JSX.Element[]
-    | ReactElement
-    | ReactElement[];
+  eventDropdown?: (value: Menu) => void;
 }
 
-export default function Dropdown({ menu }: Props): ReactElement {
-  const [toggle, setToggle] = React.useState(false);
+export default function Dropdown({
+  menu,
+  active,
+  eventDropdown,
+}: Props): ReactElement {
+  const [state, setState] = React.useState({
+    active: false,
+    menuActive: menu.find(
+      (f) => f.symbol.toLowerCase() === active.toString().toLowerCase()
+    ),
+  });
   const wrapperRef = React.useRef(null);
-  const { outside } = useOutsideAlerter(wrapperRef);
+  const dropdown = useOutsideAlerter(wrapperRef);
 
   const onDropdown = () => {
-    setToggle(!toggle);
+    setState((v) => ({ ...v, active: !v.active }));
+  };
+
+  const onMenu = (id: number) => {
+    setState((v) => ({ ...v, active: false, menuActive: menu[Number(id)] }));
+    eventDropdown(menu[Number(id)]);
   };
 
   React.useEffect(() => {
-    if (!outside) setToggle(outside);
+    if (!dropdown.outside)
+      setState((v) => ({ ...v, active: dropdown.outside }));
     return () => {};
-  }, [outside]);
+  }, [dropdown.outside]);
   return (
     <>
       <div ref={wrapperRef} className="ornn-dropdown">
@@ -43,15 +49,26 @@ export default function Dropdown({ menu }: Props): ReactElement {
           shape="round"
           size="small"
           textColor="#ff647f"
-          active={toggle}
-          icon={<IoWallet />}
+          active={state.active}
+          icon={
+            <img
+              src={state.menuActive.icon}
+              style={{ width: 20, height: 20 }}
+            />
+          }
         >
-          Ethereum
+          {state.menuActive.title}
         </Button>
         <div className="ornn-menu-dropdown">
           <List>
             {menu.map((item) => (
-              <List.Item color="#fdecef" icon={item.icon} key={item.id}>
+              <List.Item
+                value={item.id}
+                onClick={onMenu}
+                color="#fdecef"
+                icon={item.icon}
+                key={item.id}
+              >
                 {item.title}
               </List.Item>
             ))}
@@ -63,7 +80,7 @@ export default function Dropdown({ menu }: Props): ReactElement {
           position: relative;
         }
         .ornn-menu-dropdown {
-          display: ${toggle ? "block" : "none"};
+          display: ${state.active ? "block" : "none"};
           transition: 0.3s;
           position: absolute;
           min-width: 194px;

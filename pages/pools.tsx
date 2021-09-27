@@ -1,13 +1,13 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement } from "react";
 
-interface Props {
-  
-}
+interface Props {}
 
 export default function Pools({}: Props): ReactElement {
-  return (
-    <div>
-      
-    </div>
-  )
+  return <div></div>;
+}
+
+export async function getStaticProps(props) {
+  return {
+    props,
+  };
 }

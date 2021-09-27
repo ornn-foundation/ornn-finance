@@ -1,13 +1,8 @@
 import React, { ReactElement } from "react";
+import { Children } from "../interface/children";
 
-interface Props {
+interface Props extends Children {
   space?: string | number;
-  children?:
-    | string
-    | JSX.Element
-    | JSX.Element[]
-    | ReactElement
-    | ReactElement[];
 }
 
 export default function Space({ children, space }: Props): ReactElement {

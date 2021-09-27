@@ -1,7 +1,8 @@
 import React, { ReactElement } from "react";
+import { Children } from "../interface/children";
 import { contrastYIQ } from "../utils/contrastYIQ";
 
-interface Props {
+interface Props extends Children {
   width?: string;
   color?: string;
   textColor?: string;
@@ -11,12 +12,6 @@ interface Props {
   slot?: "start" | "end";
   icon?: ReactElement;
   active?: boolean;
-  children?:
-    | string
-    | JSX.Element
-    | JSX.Element[]
-    | ReactElement
-    | ReactElement[];
   onClick?: () => void;
 }
 
@@ -103,10 +98,10 @@ export default function Button({
           justify-content: center;
         }
         .start {
-          margin-right: ${children && "4px"};
+          margin-right: ${children && "6px"};
         }
         .end {
-          margin-left: 4px;
+          margin-left: 6px;
         }
       `}</style>
     </>
