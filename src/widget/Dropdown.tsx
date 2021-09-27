@@ -88,7 +88,7 @@ export default function Dropdown({
           margin-top: 5px;
           padding: 16px 0;
           border-radius: 16px;
-          border: 1px solid #eeeeee;
+          border: 1px solid rgb(229, 232, 236);
         }
       `}</style>
     </>

@@ -5,7 +5,6 @@ import Footer from "../../../src/components/Footer";
 import Nav from "../../../src/components/Nav";
 import { I18n } from "../../../src/interface/i18n";
 import Card from "../../../src/widget/Card";
-import data from "../../../src/data/ornn.json";
 
 interface Props extends I18n {}
 
@@ -21,10 +20,7 @@ export default function Swap({}: Props): ReactElement {
           flexDirection: "column",
         }}
       >
-        Ornn finance
-        <br />
-        <br />
-        <Card style={{ width: 418, marginBottom: 16 }}>
+        <Card style={{ width: 418, marginBottom: 16, backgroundColor: "#fff" }}>
           <Card.Content>
             <p>Exchange Trade tokens in an instant</p>
             <p>Exchange Trade tokens in an instant</p>

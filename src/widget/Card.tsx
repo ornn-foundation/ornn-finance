@@ -2,7 +2,7 @@ import React, { CSSProperties, ReactElement } from "react";
 import { Children } from "../interface/children";
 
 interface Props extends Children {
-  style?: CSSProperties | undefined;
+  style?: CSSProperties;
 }
 
 function Card({ children, style }: Props): ReactElement {
@@ -14,10 +14,10 @@ function Card({ children, style }: Props): ReactElement {
       <style jsx>{`
         .ornn-card {
           border-radius: 24px;
-          /* border: 1px solid #eeeeee; */
+          /* border: 1px solid rgb(229, 232, 236); */
           width: fit-content;
           box-shadow: rgba(255, 237, 244, 0.5) 0px 6px 24px 0px,
-            rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+            rgb(229, 232, 236) 0px 0px 0px 1px;
           /* box-shadow: 0 12px 24px #ffedf4; */
         }
       `}</style>
@@ -25,15 +25,17 @@ function Card({ children, style }: Props): ReactElement {
   );
 }
 
-interface PropsHeader extends Props {}
+interface PropsHeader extends Props {
+  padding?: string;
+}
 
-function Header({ children }: PropsHeader): ReactElement {
+function Header({ children, padding }: PropsHeader): ReactElement {
   return (
     <>
       <div className="ornn-card-header">{children}</div>
       <style jsx>{`
         .ornn-card-header {
-          padding: 24px;
+          padding: ${padding ? padding : "24px"};
           border-bottom: 1px solid #eeeeee;
         }
       `}</style>

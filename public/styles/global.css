@@ -13,9 +13,14 @@ body {
 
 body {
   color: #000000d9;
+  background-color: #f3f6f9;
 }
 
 .dark {
+}
+
+.overflow-hidden {
+  overflow: hidden !important;
 }
 
 .no-copy {

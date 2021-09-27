@@ -3,20 +3,25 @@ import { IoWallet, IoSettings } from "react-icons/io5";
 import { I18n } from "../interface/i18n";
 import Dropdown from "../widget/Dropdown";
 import Button from "../widget/Button";
-import Space from "../widget/Space";
+import Stack from "../widget/Stack";
 import data from "../data/ornn.json";
 import Logo from "../widget/Logo";
 import i18n from "../data/i18n.json";
 import { useRouter } from "next/router";
 import { Menu } from "../interface";
+import Modal from "../widget/Modal";
 
 interface Props extends I18n {}
 
 export default function Nav({ locale }: Props): ReactElement {
   const router = useRouter();
+  const [modal, setModal] = React.useState(false);
   const { id, chain } = router.query;
   const eventDropdown = (value: Menu) => {
     router.replace(`/swap/${value.symbol.toLowerCase()}/${id.toString()}`);
+  };
+  const onSetting = () => {
+    setModal(true);
   };
   React.useEffect(() => {
     console.log(chain, id);
@@ -28,7 +33,7 @@ export default function Nav({ locale }: Props): ReactElement {
         <div className="ornn-nav-content">
           <Logo scale={0.7} />
           <span className="space"></span>
-          <Space space={12}>
+          <Stack stack={12}>
             {chain && (
               <Dropdown
                 eventDropdown={eventDropdown}
@@ -46,15 +51,17 @@ export default function Nav({ locale }: Props): ReactElement {
               {i18n[locale].connect}
             </Button>
             <Button
+              onClick={onSetting}
               type="link"
               color="#fdecef"
               shape="circle"
               textColor="#ff647f"
               icon={<IoSettings />}
             ></Button>
-          </Space>
+          </Stack>
         </div>
       </nav>
+      <Modal modal={modal} eventModal={(modal) => setModal(modal)} />
       <style jsx>{`
         nav {
           /* height: 44px; */

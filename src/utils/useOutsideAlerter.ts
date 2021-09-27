@@ -1,16 +1,25 @@
 import React from "react";
 
 export function useOutsideAlerter(ref: React.MutableRefObject<any>) {
-  const [outside, setOutside] = React.useState(false);
+  const [state, setState] = React.useState({
+    outside: false,
+    active: 0,
+  });
   React.useEffect(() => {
     /**
      * Alert if clicked on outside of element
      */
     function handleClickOutside(event) {
       if (ref.current && !ref.current.contains(event.target)) {
-        setOutside(false);
+        setState((e) => ({
+          active: e.active + 1,
+          outside: false,
+        }));
       } else {
-        setOutside(true);
+        setState((e) => ({
+          active: e.active + 1,
+          outside: true,
+        }));
       }
     }
 
@@ -21,5 +30,5 @@ export function useOutsideAlerter(ref: React.MutableRefObject<any>) {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [ref]);
-  return { outside };
+  return state;
 }
