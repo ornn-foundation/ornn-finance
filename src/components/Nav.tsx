@@ -24,7 +24,6 @@ export default function Nav({ locale }: Props): ReactElement {
     setModal(true);
   };
   React.useEffect(() => {
-    console.log(chain, id);
     return () => {};
   }, [id]);
   return (

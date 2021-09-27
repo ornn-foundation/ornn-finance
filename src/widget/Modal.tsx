@@ -83,10 +83,6 @@ export default function Modal({ modal, eventModal }: Props): ReactElement {
         }
         .active {
           visibility: visible;
-          /* -webkit-animation-name: fadeIn;
-          -webkit-animation-duration: 0.1s;
-          animation-name: fadeIn;
-          animation-duration: 0.1s; */
         }
         .out {
           visibility: hidden;

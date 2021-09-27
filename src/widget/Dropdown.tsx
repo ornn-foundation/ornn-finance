@@ -63,11 +63,11 @@ export default function Dropdown({
           <List>
             {menu.map((item) => (
               <List.Item
+                key={item.id}
                 value={item.id}
                 onClick={onMenu}
                 color="#fdecef"
                 icon={item.icon}
-                key={item.id}
               >
                 {item.title}
               </List.Item>
