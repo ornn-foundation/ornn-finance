@@ -68,6 +68,8 @@ export default function Modal({ modal, eventModal }: Props): ReactElement {
       </div>
       <style jsx>{`
         .ornn-backdrop {
+          visibility: hidden;
+          z-index: 1600;
           position: fixed;
           transition: 0.1s;
           left: 0;

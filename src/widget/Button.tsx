@@ -1,11 +1,14 @@
-import React, { ReactElement } from "react";
+import React, { CSSProperties, ReactElement } from "react";
 import { Children } from "../interface/children";
 import { contrastYIQ } from "../utils/contrastYIQ";
 
 interface Props extends Children {
+  style?: CSSProperties;
   width?: string;
   color?: string;
   textColor?: string;
+  height?: string;
+  expand?: "default" | "block";
   type?: "default" | "link";
   shape?: "default" | "round" | "circle";
   size?: "default" | "small" | "large";
@@ -18,6 +21,7 @@ interface Props extends Children {
 export default function Button({
   children,
   width,
+  height,
   shape,
   size,
   icon,
@@ -25,7 +29,9 @@ export default function Button({
   type,
   color,
   textColor,
+  expand,
   active,
+  style,
   onClick,
 }: Props): ReactElement {
   const [activeBt, setActiveBt] = React.useState(active);
@@ -37,7 +43,7 @@ export default function Button({
 
   return (
     <>
-      <button className="ornn-bt no-copy" onClick={onClick}>
+      <button style={style} className="ornn-bt no-copy" onClick={onClick}>
         {slot === "start" && <span className="icon start">{icon}</span>}
         {icon && !slot && <span className="icon start">{icon}</span>}
         {children}
@@ -60,7 +66,9 @@ export default function Button({
             ? activeBt
               ? color
               : "initial"
-            : "#ff92a5"};
+            : color
+            ? color
+            : "#ff647f"};
           color: ${textColor ? textColor : contrastYIQ(color || "#ffffff")};
           transition: 0.3s;
           font-weight: 500;
@@ -71,9 +79,13 @@ export default function Button({
           border-width: initial;
           border-color: initial;
           box-sizing: border-box;
-          height: ${shape === "circle" ? "42px" : "2.8em"};
+          height: ${shape === "circle" ? "42px" : height ? height : "2.8em"};
           display: block;
-          width: ${shape === "circle" ? "42px" : width || "fit-content"};
+          width: ${shape === "circle"
+            ? "42px"
+            : expand === "block"
+            ? "100%"
+            : width || "fit-content"};
           clear: both;
           display: flex;
           flex-direction: row;
@@ -83,10 +95,11 @@ export default function Button({
           vertical-align: -webkit-baseline-middle;
         }
         .ornn-bt:hover {
-          background-color: ${type === "link" ? color : "#ff647f"};
+          background-color: ${type === "link" ? color : "none"};
+          filter: ${type !== "link" ? "brightness(92%)" : "none"};
         }
         .ornn-bt:active {
-          background-color: ${type === "link" ? "" : "#ff3659"};
+          /* background-color: ${type === "link" ? "" : "#ff3659"}; */
           opacity: 0.9;
         }
         .icon {

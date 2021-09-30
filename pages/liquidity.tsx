@@ -1,13 +1,15 @@
 import React, { ReactElement } from "react";
+import { I18n } from "../src/interface/i18n";
 
-interface Props {}
+interface Props extends I18n {}
 
-export default function Liquidity({}: Props): ReactElement {
-  return <div></div>;
+export default function Liquidity({ locale }: Props): ReactElement {
+  return <div>{locale}</div>;
 }
 
-export async function getStaticProps(props) {
+export const getServerSideProps = async (context) => {
+  const { defaultLocale, locale, locales, query } = context;
   return {
-    props,
+    props: { locale },
   };
-}
+};
