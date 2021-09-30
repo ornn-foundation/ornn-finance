@@ -1,7 +1,9 @@
 import { createContext, Dispatch } from "react";
+import { Chain } from "../interface";
 
 export type ActionType =
   | "SET_INITIAL"
+  | "SET_CHAIN"
   | "SET_THEME_DARK"
   | "SET_THEME_LIGHT"
   | "SET_MODE_TOGGLE";
@@ -40,6 +42,7 @@ export enum Mode {
 export interface InitialState {
   theme?: Theme | null;
   mode?: Mode;
+  chain?: Chain | null;
 }
 
 export const themeDark: Theme = {
@@ -74,9 +77,23 @@ export const theme: Theme = {
   black: "#000000",
 };
 
+export const initialChain: Chain = {
+  id: 2539,
+  title: "",
+  name: "",
+  symbol: "",
+  icon: "",
+  theme: {
+    color: "#ff647f",
+    hover: "#fdecef",
+    textColor: "#ffffff",
+  },
+};
+
 export const initialState: InitialState = {
   theme,
   mode: Mode.light,
+  chain: initialChain,
 };
 
 export interface IContext {

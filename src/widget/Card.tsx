@@ -14,10 +14,10 @@ function Card({ children, style }: Props): ReactElement {
       <style jsx>{`
         .ornn-card {
           border-radius: 24px;
-          /* border: 1px solid rgb(229, 232, 236); */
+          border: 1px solid rgb(229, 232, 236);
           width: fit-content;
-          box-shadow: rgba(255, 237, 244, 0.5) 0px 6px 24px 0px,
-            rgb(229, 232, 236) 0px 0px 0px 1px;
+          /* box-shadow: rgba(255, 237, 244, 0.5) 0px 6px 24px 0px,
+            rgb(229, 232, 236) 0px 0px 0px 1px; */
           /* box-shadow: 0 12px 24px #ffedf4; */
         }
       `}</style>

@@ -4,25 +4,49 @@
       "id": 0,
       "title": "Ethereum",
       "icon": "/img/ethereum-logo.png",
-      "symbol": "ETH"
+      "symbol": "ETH",
+      "name": "Ethereum",
+      "theme": {
+        "color": "#627EEA",
+        "textColor": "#fff",
+        "hover": "#e5eafd"
+      }
     },
     {
       "id": 1,
       "title": "BSC Mainnet",
       "icon": "/img/binance-logo.png",
-      "symbol": "BNB"
+      "symbol": "BNB",
+      "name": "BNB",
+      "theme": {
+        "color": "#f0b90b",
+        "textColor": "#fff",
+        "hover": "#fcf4e3"
+      }
     },
     {
       "id": 2,
       "title": "Energy Web",
       "icon": "/img/energy-web-logo.png",
-      "symbol": "EWT"
+      "symbol": "EWT",
+      "name": "Energy Web",
+      "theme": {
+        "color": "#a666ff",
+        "textColor": "#fff",
+        "hover": "#eadbff"
+      }
     },
     {
       "id": 3,
       "title": "Bitkub",
       "icon": "/img/bitkub-logo.png",
-      "symbol": "KUB"
+      "symbol": "KUB",
+      "name": "Bitkub",
+      "theme": {
+        "color": "#4cdf85",
+        "textColor": "#fff",
+        "hover": "#ecfcf4"
+      }
     }
   ]
 }

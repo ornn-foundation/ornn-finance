@@ -14,6 +14,11 @@ export const reducer = (
   switch (type) {
     case "SET_INITIAL":
       return initialState;
+    case "SET_CHAIN":
+      return {
+        ...state,
+        chain: payload.chain,
+      };
     case "SET_THEME_DARK":
       document.body.classList.add("dark");
       return {

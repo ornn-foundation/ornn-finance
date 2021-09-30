@@ -1,5 +1,4 @@
 import React, { ReactElement } from "react";
-import { Menu } from "../interface";
 import { Children } from "../interface/children";
 
 interface Props extends Children {}

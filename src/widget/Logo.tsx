@@ -2,10 +2,11 @@ import React, { ReactElement } from "react";
 import Link from "next/link";
 
 interface Props {
-  scale: number;
+  color?: string;
+  scale?: number;
 }
 
-export default function Logo({ scale }: Props): ReactElement {
+export default function Logo({ scale, color }: Props): ReactElement {
   return (
     <>
       <Link href="/">
@@ -26,12 +27,12 @@ export default function Logo({ scale }: Props): ReactElement {
         .logo {
           width: 50px;
           height: 50px;
-          background: #ff647f;
+          background: ${color ? color : "#ff647f"};
           border-radius: 50px;
           position: relative;
         }
-        .logo:active {
-          background: #ff3659;
+        .logo:hover {
+          filter: brightness(92%);
         }
         .circle {
           width: 17px;

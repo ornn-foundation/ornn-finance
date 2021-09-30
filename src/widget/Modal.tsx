@@ -1,16 +1,25 @@
 import React, { ReactElement } from "react";
 import { IoClose } from "react-icons/io5";
+import { Children } from "../interface/children";
 import { useOutsideAlerter } from "../utils/useOutsideAlerter";
 import Button from "./Button";
 import Card from "./Card";
 import Space from "./Space";
 
-interface Props {
+interface Props extends Children {
+  color?: string;
+  textColor?: string;
   modal?: boolean;
   eventModal?: (modal: boolean) => void;
 }
 
-export default function Modal({ modal, eventModal }: Props): ReactElement {
+export default function Modal({
+  modal,
+  children,
+  eventModal,
+  color,
+  textColor,
+}: Props): ReactElement {
   const [state, setState] = React.useState({
     modal,
     ornnmodal: "ornn-backdrop",
@@ -47,27 +56,22 @@ export default function Modal({ modal, eventModal }: Props): ReactElement {
                   <Button
                     onClick={() => eventModal(false)}
                     type="link"
-                    color="#fdecef"
                     shape="circle"
-                    textColor="#ff647f"
+                    color={color}
+                    textColor={textColor}
                     icon={<IoClose />}
                   ></Button>
                 </div>
               </Card.Header>
-              <Card.Content>
-                <p>Exchange Trade tokens in an instant</p>
-                <p>Exchange Trade tokens in an instant</p>
-                <p>Exchange Trade tokens in an instant</p>
-                <p>Exchange Trade tokens in an instant</p>
-                <p>Exchange Trade tokens in an instant</p>
-                <p>Exchange Trade tokens in an instant</p>
-              </Card.Content>
+              <Card.Content>{children}</Card.Content>
             </Card>
           </div>
         </div>
       </div>
       <style jsx>{`
         .ornn-backdrop {
+          visibility: hidden;
+          z-index: 1600;
           position: fixed;
           transition: 0.1s;
           left: 0;
