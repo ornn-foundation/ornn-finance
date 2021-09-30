@@ -32,6 +32,26 @@ Visit <a aria-label="next.js learn" href="https://nextjs.org/learn">https://next
 
 Visit [https://nextjs.org/docs](https://nextjs.org/docs) to view the full documentation.
 
+## Environment Variables
+
+Next.js has built-in support for loading environment variables from .env into process.env.
+
+An example .env :
+
+```shell
+# .env
+# NODE ENV
+HOST_NAME=localhost
+PORT=3000
+HOST=http://$HOST_NAME:$PORT
+
+# HOST API
+HOST_NAME_API=localhost
+PORT_API=3100
+PRE_FIX=api
+HOST_API=http://$HOST_NAME_API:$PORT_API
+```
+
 ## Installation
 
 ```bash
