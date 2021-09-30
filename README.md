@@ -36,7 +36,7 @@ Visit [https://nextjs.org/docs](https://nextjs.org/docs) to view the full docume
 
 Next.js has built-in support for loading environment variables from .env into process.env.
 
-An example .env :
+Create an .env file. :
 
 ```shell
 # .env
