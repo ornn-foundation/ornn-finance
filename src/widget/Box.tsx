@@ -1,4 +1,4 @@
-import React, { CSSProperties } from "react";
+import React, { CSSProperties, ReactElement } from "react";
 import { Children } from "../interface/children";
 
 interface Props extends Children {
@@ -8,13 +8,13 @@ interface Props extends Children {
   alignItems?: "center";
 }
 
-export const Box = ({
+export default function Box({
   style,
   flex,
   alignItems,
   justifyContent,
   children,
-}: Props) => {
+}: Props): ReactElement {
   return (
     <>
       <div style={style} className="ornn-box">
@@ -29,4 +29,4 @@ export const Box = ({
       `}</style>
     </>
   );
-};
+}

@@ -1,7 +1,10 @@
-import React, { ReactElement } from "react";
+import React, { CSSProperties, ReactElement } from "react";
+import { Children } from "../interface/children";
 
-interface Props {}
+interface Props extends Children {
+  style?: CSSProperties;
+}
 
-export default function Space({}: Props): ReactElement {
-  return <div style={{ flex: 1 }}></div>;
+export default function Space({ style, children }: Props): ReactElement {
+  return <div style={{ ...style, flex: 1 }}>{children}</div>;
 }

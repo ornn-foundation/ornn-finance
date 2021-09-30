@@ -1,11 +1,14 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import { Children } from "../interface/children";
 
 interface Props extends Children {
   eventScroll?: (value: boolean) => void;
 }
 
-export const InfiniteScroll = ({ eventScroll, children }: Props) => {
+export default function InfiniteScroll({
+  eventScroll,
+  children,
+}: Props): ReactElement {
   React.useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -22,4 +25,4 @@ export const InfiniteScroll = ({ eventScroll, children }: Props) => {
   }
 
   return <div>{children}</div>;
-};
+}

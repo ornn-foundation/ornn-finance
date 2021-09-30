@@ -1,11 +1,11 @@
 import React, { ReactElement } from "react";
 import { ENV, Env } from "../src/constants/env";
-import { InfiniteScroll } from "../src/widget/InfiniteScroll";
+import { Button, InfiniteScroll } from "../src/widget";
 
 interface Props extends Env {}
 
 export default function Home({ env }: Props): ReactElement {
-  const [state, setState] = React.useState([]);
+  const [state, setState] = React.useState([1]);
 
   return (
     <div>

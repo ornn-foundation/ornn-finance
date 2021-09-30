@@ -1,7 +1,7 @@
-import React from "react";
+import React, { ReactElement } from "react";
 
 interface Props {}
 
-export const MoonIcon = (props: Props) => {
+export default function MoonIcon(props: Props): ReactElement {
   return <div></div>;
-};
+}

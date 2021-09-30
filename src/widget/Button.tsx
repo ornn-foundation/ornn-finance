@@ -85,7 +85,7 @@ export default function Button({
             ? "42px"
             : expand === "block"
             ? "100%"
-            : width || "fit-content"};
+            : width || "max-content"};
           clear: both;
           display: flex;
           flex-direction: row;

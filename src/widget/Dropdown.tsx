@@ -28,7 +28,7 @@ export default function Dropdown({
     menuActive: menu.find(
       (f) => f.symbol.toLowerCase() === active.toString().toLowerCase()
     ),
-    chevronDown: "icon-chevron fa-arrow-down open",
+    chevronDown: "icon-chevron fa-arrow-down",
   });
   const wrapperRef = React.useRef(null);
   const dropdown = useOutsideAlerter(wrapperRef);
@@ -111,11 +111,12 @@ export default function Dropdown({
           position: relative;
         }
         .ornn-menu-dropdown {
+          z-index: 1600;
           visibility: ${state.active ? "visible" : "hidden"};
           opacity: ${state.active ? "1" : "0"};
           transition: 0.1s;
           position: absolute;
-          min-width: 194px;
+          width: max-content;
           background-color: #ffffff;
           margin-top: 5px;
           padding: 16px 0;
@@ -129,11 +130,11 @@ export default function Dropdown({
         }
         .fa-arrow-down {
           transform: rotate(0deg);
-          transition: transform 0.3s linear;
+          transition: transform 0.2s linear;
         }
         .fa-arrow-down.open {
           transform: rotate(180deg);
-          transition: transform 0.3s linear;
+          transition: transform 0.2s linear;
         }
       `}</style>
     </>
