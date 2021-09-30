@@ -30,7 +30,7 @@ export default function Nav({ locale }: Props): ReactElement {
         chain: value,
       },
     });
-    router.push(`/${"th"}/swap/${value.symbol.toLowerCase()}/${id.toString()}`);
+    router.push(`/${locale}/swap/${value.symbol.toLowerCase()}/${id.toString()}`);
   };
 
   const onSetting = () => {
