@@ -64,36 +64,28 @@ export default function Nav({ locale }: Props): ReactElement {
               Swap
             </Link>
             <Link
-              onClick={() => {
-                router.replace(`/${locale}/swap/eth/bnb`);
-              }}
+              onClick={() => {}}
               color={state.chain.theme.hover}
               style={{ marginLeft: 5 }}
             >
               Pools
             </Link>
             <Link
-              onClick={() => {
-                router.replace(`/${locale}/swap/eth/bnb`);
-              }}
+              onClick={() => {}}
               color={state.chain.theme.hover}
               style={{ marginLeft: 5 }}
             >
               Farms
             </Link>
             <Link
-              onClick={() => {
-                router.replace(`/${locale}/swap/eth/bnb`);
-              }}
+              onClick={() => {}}
               color={state.chain.theme.hover}
               style={{ marginLeft: 5 }}
             >
               Liquidity
             </Link>
             <Link
-              onClick={() => {
-                router.replace(`/${locale}/swap/eth/bnb`);
-              }}
+              onClick={() => {}}
               color={state.chain.theme.hover}
               style={{ marginLeft: 5 }}
             >
