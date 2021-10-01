@@ -26,6 +26,18 @@
     },
     {
       "id": 2,
+      "title": "Solana",
+      "icon": "/img/solana-logo.png",
+      "symbol": "SOL",
+      "name": "Solana",
+      "theme": {
+        "color": "#101921",
+        "textColor": "#fff",
+        "hover": "#eadbff"
+      }
+    },
+    {
+      "id": 3,
       "title": "Energy Web",
       "icon": "/img/energy-web-logo.png",
       "symbol": "EWT",
@@ -37,7 +49,7 @@
       }
     },
     {
-      "id": 3,
+      "id": 4,
       "title": "Bitkub",
       "icon": "/img/bitkub-logo.png",
       "symbol": "KUB",

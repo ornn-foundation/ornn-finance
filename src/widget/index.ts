@@ -5,7 +5,7 @@ import CryptoForm from "./CryptoForm";
 import Display from "./Display";
 import Dropdown from "./Dropdown";
 import InfiniteScroll from "./InfiniteScroll";
-import Link from "./Link";
+import LinkIcon from "./LinkIcon";
 import List from "./List";
 import Logo from "./Logo";
 import Modal from "./Modal";
@@ -16,6 +16,7 @@ import SunIcon from "./SunIcon";
 import Switch from "./Switch";
 import Tooltip from "./Tooltip";
 import Rotate from "./Rotate";
+import Link from "./Link";
 
 export {
   Button,
@@ -26,6 +27,7 @@ export {
   Display,
   InfiniteScroll,
   Link,
+  LinkIcon,
   List,
   Logo,
   Modal,

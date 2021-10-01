@@ -84,9 +84,9 @@ export const initialChain: Chain = {
   symbol: "",
   icon: "",
   theme: {
-    color: "#ff647f",
-    hover: "#fdecef",
-    textColor: "#ffffff",
+    color: "#FFC0CB",
+    hover: "#fff3fe",
+    textColor: "#0e1318",
   },
 };
 

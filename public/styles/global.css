@@ -7,7 +7,7 @@ body {
 }
 
 * {
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   font: Google Sans, -apple-system, BlinkMacSystemFont, sans-serif;
   /* font: 400 18px/24px Google Sans, -apple-system, BlinkMacSystemFont, sans-serif; */
 }

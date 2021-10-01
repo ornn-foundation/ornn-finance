@@ -2,14 +2,13 @@ import React, { ReactElement } from "react";
 import { useRouter } from "next/router";
 import { I18n } from "../../../src/interface/i18n";
 import data from "../../../src/data/ornn.json";
-import { IoOptions, IoChevronBack } from "react-icons/io5";
-import { BiReset } from "react-icons/bi";
+import { IoOptions, IoChevronBack, IoGitCompareOutline } from "react-icons/io5";
 import { RiRefreshLine } from "react-icons/ri";
 import { Context } from "../../../src/lib/context";
 import { Content, Footer, Nav } from "../../../src/components";
 import {
   Box,
-  Link,
+  LinkIcon,
   Card,
   CryptoForm,
   Space,
@@ -18,6 +17,7 @@ import {
   Tooltip,
   Rotate,
 } from "../../../src/widget";
+import { Chain, Token } from "../../../src/interface";
 
 interface Query {
   chain: string;
@@ -27,6 +27,11 @@ interface Query {
 interface Swap {
   form: string;
   to: string;
+}
+
+interface chain {
+  form: Chain;
+  to: Token;
 }
 
 interface StateSwap {
@@ -86,17 +91,17 @@ export default function Swap({ query, locale }: Props): ReactElement {
                 </span>
                 <Space />
                 <Tooltip text="Refash">
-                  <Link
+                  <LinkIcon
                     color={state.chain.theme.hover}
                     style={{ fontSize: 22, color: state.chain.theme.color }}
                   >
                     <Rotate>
                       <RiRefreshLine />
                     </Rotate>
-                  </Link>
+                  </LinkIcon>
                 </Tooltip>
                 <Tooltip text="Options">
-                  <Link
+                  <LinkIcon
                     onClick={() =>
                       setStateSwap((v) => ({ ...v, display: "options" }))
                     }
@@ -105,7 +110,7 @@ export default function Swap({ query, locale }: Props): ReactElement {
                     style={{ fontSize: 22, color: state.chain.theme.color }}
                   >
                     <IoOptions />
-                  </Link>
+                  </LinkIcon>
                 </Tooltip>
               </Box>
               <span style={{ fontSize: 12 }}>Trade tokens in an instant</span>
@@ -172,7 +177,7 @@ export default function Swap({ query, locale }: Props): ReactElement {
           <Display display={stateSwap.display === "options"}>
             <Card.Header>
               <Box flex>
-                <Link
+                <LinkIcon
                   onClick={() =>
                     setStateSwap((v) => ({ ...v, display: "exchange" }))
                   }
@@ -181,7 +186,7 @@ export default function Swap({ query, locale }: Props): ReactElement {
                   style={{ fontSize: 22, color: state.chain.theme.color }}
                 >
                   <IoChevronBack />
-                </Link>
+                </LinkIcon>
                 <Space
                   style={{
                     display: "flex",
@@ -194,13 +199,12 @@ export default function Swap({ query, locale }: Props): ReactElement {
                   Advanced Settings
                 </Space>
                 <Tooltip text="Default">
-                  <Link
-                    onClick={() => {}}
+                  <LinkIcon
                     color={state.chain.theme.hover}
                     style={{ fontSize: 22, color: state.chain.theme.color }}
                   >
-                    <BiReset />
-                  </Link>
+                    <IoGitCompareOutline />
+                  </LinkIcon>
                 </Tooltip>
               </Box>
             </Card.Header>
@@ -209,7 +213,7 @@ export default function Swap({ query, locale }: Props): ReactElement {
           <Display display={stateSwap.display === "coin"}>
             <Card.Header>
               <Box flex>
-                <Link
+                <LinkIcon
                   onClick={() =>
                     setStateSwap((v) => ({ ...v, display: "exchange" }))
                   }
@@ -218,7 +222,7 @@ export default function Swap({ query, locale }: Props): ReactElement {
                   style={{ fontSize: 22, color: state.chain.theme.color }}
                 >
                   <IoChevronBack />
-                </Link>
+                </LinkIcon>
                 <Space
                   style={{
                     display: "flex",
@@ -241,6 +245,7 @@ export default function Swap({ query, locale }: Props): ReactElement {
             maxWidth: 418,
             padding: "0 16px",
             color: "gray",
+            marginBottom: 40,
           }}
         >
           <Box flex style={{ marginBottom: 8 }}>
@@ -263,9 +268,6 @@ export default function Swap({ query, locale }: Props): ReactElement {
 
 export const getServerSideProps = async (context) => {
   const { defaultLocale, locale, locales, query } = context;
-  const ch = data.chain.find(
-    (f) => f.symbol.toLowerCase() === query.chain?.toString().toLowerCase()
-  );
   return {
     props: { locale, query },
   };

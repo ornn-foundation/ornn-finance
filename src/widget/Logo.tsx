@@ -4,12 +4,19 @@ import Link from "next/link";
 interface Props {
   color?: string;
   scale?: number;
+  margin?: string;
+  onClick?: () => void;
 }
 
-export default function Logo({ scale, color }: Props): ReactElement {
+export default function Logo({
+  margin,
+  onClick,
+  scale,
+  color,
+}: Props): ReactElement {
   return (
     <>
-      <Link href="/">
+      <a onClick={onClick}>
         <div
           style={{
             width: "fit-content",
@@ -22,9 +29,10 @@ export default function Logo({ scale, color }: Props): ReactElement {
             <div className="mask"></div>
           </div>
         </div>
-      </Link>
+      </a>
       <style jsx>{`
         .logo {
+          margin: ${margin || "0"};
           width: 50px;
           height: 50px;
           background: ${color ? color : "#ff647f"};
@@ -35,8 +43,8 @@ export default function Logo({ scale, color }: Props): ReactElement {
           filter: brightness(92%);
         }
         .circle {
-          width: 17px;
-          height: 17px;
+          width: 12px;
+          height: 12px;
           border-radius: 50px;
           border: 3.5px solid #fff;
           position: absolute;

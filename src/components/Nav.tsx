@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react";
-import { IoWallet, IoSettingsSharp } from "react-icons/io5";
+import { IoWallet, IoSettingsSharp, IoMenu } from "react-icons/io5";
 import { I18n } from "../interface/i18n";
 import data from "../data/ornn.json";
 import i18n from "../data/i18n.json";
@@ -9,6 +9,8 @@ import { Context, initialChain } from "../lib/context";
 import {
   Button,
   Dropdown,
+  Link,
+  LinkIcon,
   Logo,
   Modal,
   Stack,
@@ -30,7 +32,9 @@ export default function Nav({ locale }: Props): ReactElement {
         chain: value,
       },
     });
-    router.push(`/${locale}/swap/${value.symbol.toLowerCase()}/${id.toString()}`);
+    router.replace(
+      `/${locale}/swap/${value.symbol.toLowerCase()}/${id.toString()}`
+    );
   };
 
   const onSetting = () => {
@@ -40,19 +44,77 @@ export default function Nav({ locale }: Props): ReactElement {
     <>
       <nav>
         <div className="ornn-nav-content">
-          <Logo color={state.chain?.theme.color} scale={0.7} />
+          <Logo
+            margin="0 8px 0 0"
+            onClick={() => {
+              dispatch({ type: "SET_INITIAL" });
+              router.replace("/");
+            }}
+            color={state.chain?.theme.color}
+            scale={0.8}
+          />
+          <div className="ornn-display-menu">
+            <Link
+              onClick={() => {
+                router.replace(`/${locale}/swap/eth/bnb`);
+              }}
+              color={state.chain.theme.hover}
+              style={{ marginLeft: 5 }}
+            >
+              Swap
+            </Link>
+            <Link
+              onClick={() => {
+                router.replace(`/${locale}/swap/eth/bnb`);
+              }}
+              color={state.chain.theme.hover}
+              style={{ marginLeft: 5 }}
+            >
+              Pools
+            </Link>
+            <Link
+              onClick={() => {
+                router.replace(`/${locale}/swap/eth/bnb`);
+              }}
+              color={state.chain.theme.hover}
+              style={{ marginLeft: 5 }}
+            >
+              Farms
+            </Link>
+            <Link
+              onClick={() => {
+                router.replace(`/${locale}/swap/eth/bnb`);
+              }}
+              color={state.chain.theme.hover}
+              style={{ marginLeft: 5 }}
+            >
+              Liquidity
+            </Link>
+            <Link
+              onClick={() => {
+                router.replace(`/${locale}/swap/eth/bnb`);
+              }}
+              color={state.chain.theme.hover}
+              style={{ marginLeft: 5 }}
+            >
+              Staking
+            </Link>
+          </div>
+
           <span className="space"></span>
           <Stack stack={12}>
-            {chain && (
-              <Dropdown
-                iconDropdown
-                eventDropdown={eventDropdown}
-                {...(typeof chain === "string" && { active: chain })}
-                menu={data.chain}
-                color={state.chain?.theme.hover}
-                textColor={state.chain?.theme.color}
-              />
-            )}
+            <div className="ornn-display">
+              {chain && (
+                <Dropdown
+                  iconDropdown
+                  eventDropdown={eventDropdown}
+                  {...(typeof chain === "string" && { active: chain })}
+                  menu={data.chain}
+                  color={state.chain?.theme.hover}
+                  textColor={state.chain?.theme.color}
+                />
+              )}
+            </div>
             <Button
               slot="start"
               shape="round"
@@ -64,15 +126,25 @@ export default function Nav({ locale }: Props): ReactElement {
               {i18n.connect[locale] || ""}
             </Button>
             <Tooltip text="Settings">
-              <Button
+              <LinkIcon
                 onClick={onSetting}
-                type="link"
-                shape="circle"
-                color={state.chain?.theme.hover}
-                textColor={state.chain?.theme.color}
-                icon={<IoSettingsSharp />}
-              ></Button>
+                color={state.chain.theme.hover}
+                style={{ fontSize: 22, color: state.chain.theme.color }}
+              >
+                <IoSettingsSharp />
+              </LinkIcon>
             </Tooltip>
+            <div className="ornn-menu">
+              <Tooltip text="Menu">
+                <LinkIcon
+                  onClick={() => {}}
+                  color={state.chain.theme.hover}
+                  style={{ fontSize: 22, color: state.chain.theme.color }}
+                >
+                  <IoMenu />
+                </LinkIcon>
+              </Tooltip>
+            </div>
           </Stack>
         </div>
       </nav>
@@ -88,6 +160,7 @@ export default function Nav({ locale }: Props): ReactElement {
       <style jsx>{`
         nav {
           /* height: 44px; */
+          border-bottom: 1px solid #c7c7c7;
         }
         .ornn-nav-content {
           display: flex;
@@ -99,6 +172,29 @@ export default function Nav({ locale }: Props): ReactElement {
         }
         .space {
           flex: 1;
+        }
+
+        .ornn-display-menu,
+        .ornn-display {
+          display: flex;
+          align-items: center;
+        }
+        .ornn-menu {
+          display: none;
+        }
+        @media only screen and (max-width: 600px) {
+          .ornn-display {
+            display: none;
+          }
+        }
+
+        @media only screen and (max-width: 870px) {
+          .ornn-display-menu {
+            display: none;
+          }
+          .ornn-menu {
+            display: block;
+          }
         }
       `}</style>
     </>

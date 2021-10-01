@@ -1,8 +1,8 @@
 import React, { ReactElement } from "react";
 import { IoClose } from "react-icons/io5";
+import { LinkIcon } from ".";
 import { Children } from "../interface/children";
 import { useOutsideAlerter } from "../utils/useOutsideAlerter";
-import Button from "./Button";
 import Card from "./Card";
 import Space from "./Space";
 
@@ -47,20 +47,28 @@ export default function Modal({
         <div ref={wrapperRef} id="ornnmodal" className="ornn-modal">
           <div className="ornn-modal-content">
             <Card
-              style={{ width: 418, marginBottom: 16, backgroundColor: "#fff" }}
+              style={{
+                width: "100%",
+                maxWidth: 418,
+                marginBottom: 16,
+                backgroundColor: "#fff",
+              }}
             >
               <Card.Header padding="16px 24px">
                 <div className="ornn-modal-header">
-                  <span>as</span>
+                  <span style={{ fontSize: 18, fontWeight: "bold" }}>
+                    Advanced Settings
+                  </span>
                   <Space />
-                  <Button
-                    onClick={() => eventModal(false)}
-                    type="link"
-                    shape="circle"
-                    color={color}
-                    textColor={textColor}
-                    icon={<IoClose />}
-                  ></Button>
+                  <div style={{ marginLeft: 8 }}>
+                    <LinkIcon
+                      onClick={() => eventModal(false)}
+                      color={color}
+                      style={{ fontSize: 22, color: textColor }}
+                    >
+                      <IoClose />
+                    </LinkIcon>
+                  </div>
                 </div>
               </Card.Header>
               <Card.Content>{children}</Card.Content>
@@ -83,7 +91,7 @@ export default function Modal({
         }
         .ornn-modal {
           margin: 60px auto auto;
-          width: fit-content;
+          width: max-content;
         }
         .active {
           visibility: visible;

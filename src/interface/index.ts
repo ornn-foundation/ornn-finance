@@ -11,3 +11,12 @@ export interface Chain {
   name: string;
   theme: Theme;
 }
+
+export interface Token {
+  id: number;
+  name: string;
+  logo: string;
+  symbol: string;
+  contract: string;
+  amount: string;
+}

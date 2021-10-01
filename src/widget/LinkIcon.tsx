@@ -6,34 +6,37 @@ interface Props extends Children {
   style?: CSSProperties;
   onClick?: () => void;
   color?: string;
+  height?: string;
   width?: string;
 }
 
-export default function Link({
+export default function LinkIcon({
   margin,
+  style,
   onClick,
   children,
-  width,
   color,
-  style,
 }: Props): ReactElement {
+  const clones = React.cloneElement(children as any, {
+    style,
+  });
+
   return (
     <>
-      <a style={style} onClick={onClick}>
-        <div className="ornn-link">{children}</div>
+      <a onClick={onClick}>
+        <div className="ornn-link">{clones}</div>
       </a>
       <style jsx>{`
         .ornn-link {
+          margin: ${margin ? margin : "0"};
           cursor: pointer;
-          height: 2.5em;
-          padding: 0 1em;
-          width: ${width ? width : "max-content"};
+          height: 36px;
+          width: 36px;
           display: flex;
           justify-content: center;
           align-items: center;
           transition: 0.3s;
           border-radius: 10px;
-          margin: ${margin ? margin : "0"};
         }
         .ornn-link:hover {
           background-color: ${color ? color : "#f3f5fa"};
