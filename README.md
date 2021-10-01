@@ -20,6 +20,8 @@
   </a>
 </p>
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/6f87d450-09ac-4e0f-adb9-a82962fd918f/deploy-status)](https://app.netlify.com/sites/ornn-finance/deploys)
+
 ## Description
 
 [Next](https://github.com/vercel/next.js) gives you the best developer experience with all the features you need for production: hybrid static & server rendering, TypeScript support, smart bundling, route pre-fetching, and more. No config needed.
