@@ -10,7 +10,7 @@ interface Props extends Children {
   iconDropdown?: boolean;
   color?: string;
   textColor?: string;
-  active?: number | string;
+  chain?: Chain;
   menu?: Chain[];
   eventDropdown?: (value: Chain) => void;
 }
@@ -19,15 +19,13 @@ export default function Dropdown({
   color,
   textColor,
   menu,
-  active,
+  chain,
   eventDropdown,
   iconDropdown,
 }: Props): ReactElement {
   const [state, setState] = React.useState({
     active: false,
-    menuActive: menu.find(
-      (f) => f.symbol.toLowerCase() === active.toString().toLowerCase()
-    ),
+    menuActive: chain,
     chevronDown: "icon-chevron fa-arrow-down",
   });
   const wrapperRef = React.useRef(null);
@@ -56,6 +54,14 @@ export default function Dropdown({
   React.useEffect(() => {
     setState((v) => ({
       ...v,
+      menuActive: chain,
+    }));
+    return () => {};
+  }, [chain]);
+
+  React.useEffect(() => {
+    setState((v) => ({
+      ...v,
       active: !dropdown.outside ? dropdown.outside : v.active,
       chevronDown: !dropdown.outside
         ? "icon-chevron fa-arrow-down"
@@ -63,6 +69,7 @@ export default function Dropdown({
     }));
     return () => {};
   }, [dropdown.outside]);
+
   return (
     <>
       <div ref={wrapperRef} className="ornn-dropdown">

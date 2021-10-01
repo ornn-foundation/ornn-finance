@@ -25,21 +25,38 @@ export default function Nav({ locale }: Props): ReactElement {
   const router = useRouter();
   const [modal, setModal] = React.useState(false);
   const { id, chain } = router.query;
-  const eventDropdown = (value: Chain) => {
+
+  const setChain = (value: Chain) => {
     dispatch({
       type: "SET_CHAIN",
       payload: {
         chain: value,
       },
     });
+  };
+
+  const eventDropdown = (value: Chain) => {
+    setChain(value);
     router.replace(
       `/${locale}/swap/${value.symbol.toLowerCase()}/${id.toString()}`
     );
   };
 
+  React.useEffect(() => {
+    const value = data.chain.find(
+      (f) => f.symbol.toLowerCase() === chain?.toString().toLowerCase()
+    );
+    console.log(value);
+    if (value) setChain(value);
+  }, [chain]);
+
   const onSetting = () => {
     setModal(true);
   };
+
+  React.useEffect(() => {
+    console.log(state);
+  }, [state]);
   return (
     <>
       <nav>
@@ -47,8 +64,8 @@ export default function Nav({ locale }: Props): ReactElement {
           <Logo
             margin="0 8px 0 0"
             onClick={() => {
+              router.push("/");
               dispatch({ type: "SET_INITIAL" });
-              router.replace("/");
             }}
             color={state.chain?.theme.color}
             scale={0.8}
@@ -56,7 +73,7 @@ export default function Nav({ locale }: Props): ReactElement {
           <div className="ornn-display-menu">
             <Link
               onClick={() => {
-                router.replace(`/${locale}/swap/eth/bnb`);
+                router.push(`/${locale}/swap/eth/bnb`);
               }}
               color={state.chain.theme.hover}
               style={{ marginLeft: 5 }}
@@ -64,28 +81,36 @@ export default function Nav({ locale }: Props): ReactElement {
               Swap
             </Link>
             <Link
-              onClick={() => {}}
+              onClick={() => {
+                router.push(`/${locale}/pools`);
+              }}
               color={state.chain.theme.hover}
               style={{ marginLeft: 5 }}
             >
               Pools
             </Link>
             <Link
-              onClick={() => {}}
+              onClick={() => {
+                router.push(`/${locale}/farms`);
+              }}
               color={state.chain.theme.hover}
               style={{ marginLeft: 5 }}
             >
               Farms
             </Link>
             <Link
-              onClick={() => {}}
+              onClick={() => {
+                router.push(`/${locale}/liquidity`);
+              }}
               color={state.chain.theme.hover}
               style={{ marginLeft: 5 }}
             >
               Liquidity
             </Link>
             <Link
-              onClick={() => {}}
+              onClick={() => {
+                router.push(`/${locale}/staking`);
+              }}
               color={state.chain.theme.hover}
               style={{ marginLeft: 5 }}
             >
@@ -100,7 +125,7 @@ export default function Nav({ locale }: Props): ReactElement {
                 <Dropdown
                   iconDropdown
                   eventDropdown={eventDropdown}
-                  {...(typeof chain === "string" && { active: chain })}
+                  chain={state.chain}
                   menu={data.chain}
                   color={state.chain?.theme.hover}
                   textColor={state.chain?.theme.color}

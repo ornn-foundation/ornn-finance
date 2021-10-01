@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react";
-import { Nav } from "../src/components";
+import { Content, Nav } from "../src/components";
 import { ENV, Env } from "../src/constants/env";
 import { I18n } from "../src/interface/i18n";
 import { Button, InfiniteScroll } from "../src/widget";
@@ -12,6 +12,16 @@ export default function Home({ locale }: Props): ReactElement {
   return (
     <>
       <Nav {...{ locale: locale.toString() }} />
+      <Content
+        style={{
+          display: "flex",
+          alignItems: "center",
+          flexDirection: "column",
+          justifyContent: "center",
+        }}
+      >
+        <h1>Ornn Finance</h1>
+      </Content>
     </>
   );
 }

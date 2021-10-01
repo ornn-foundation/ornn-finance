@@ -53,16 +53,8 @@ export default function Swap({ query, locale }: Props): ReactElement {
     },
   });
   React.useEffect(() => {
-    dispatch({
-      type: "SET_CHAIN",
-      payload: {
-        chain: data.chain.find(
-          (f) => f.symbol.toLowerCase() === chain?.toString().toLowerCase()
-        ),
-      },
-    });
     return () => {};
-  }, [chain]);
+  }, []);
   return (
     <>
       <Nav {...{ locale: locale.toString() }} />
@@ -269,6 +261,6 @@ export default function Swap({ query, locale }: Props): ReactElement {
 export const getServerSideProps = async (context) => {
   const { defaultLocale, locale, locales, query } = context;
   return {
-    props: { locale, query },
+    props: { defaultLocale, locale, query },
   };
 };

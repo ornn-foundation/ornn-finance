@@ -4,7 +4,7 @@ import { I18n } from "../src/interface/i18n";
 
 interface Props extends I18n {}
 
-export default function Pools({ locale }: Props): ReactElement {
+export default function Staking({ locale }: Props): ReactElement {
   return (
     <>
       <Nav {...{ locale: locale.toString() }} />
@@ -16,7 +16,7 @@ export default function Pools({ locale }: Props): ReactElement {
           justifyContent: "center",
         }}
       >
-        Pools
+        Staking
       </Content>
     </>
   );
