@@ -174,7 +174,6 @@ export default function Swap({ query, locale }: Props): ReactElement {
                     setStateSwap((v) => ({ ...v, display: "exchange" }))
                   }
                   color={state.chain.theme.hover}
-                  margin="0 0 0 4px"
                   style={{ fontSize: 22, color: state.chain.theme.color }}
                 >
                   <IoChevronBack />
@@ -210,7 +209,6 @@ export default function Swap({ query, locale }: Props): ReactElement {
                     setStateSwap((v) => ({ ...v, display: "exchange" }))
                   }
                   color={state.chain.theme.hover}
-                  margin="0 0 0 4px"
                   style={{ fontSize: 22, color: state.chain.theme.color }}
                 >
                   <IoChevronBack />
