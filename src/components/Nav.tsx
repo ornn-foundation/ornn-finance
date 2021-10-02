@@ -5,18 +5,21 @@ import data from "../data/ornn.json";
 import i18n from "../data/i18n.json";
 import { useRouter } from "next/router";
 import { Chain } from "../interface";
-import { Context, initialChain } from "../lib/context";
+import { Context, initialChain, Mode } from "../lib/context";
 import {
+  Box,
   Button,
   Dropdown,
   Link,
   LinkIcon,
   Logo,
   Modal,
+  Space,
   Stack,
   Switch,
   Tooltip,
 } from "../widget";
+import { getStorage, KEY_STORAGE } from "../utils/storage";
 
 interface Props extends I18n {}
 
@@ -25,7 +28,10 @@ export default function Nav({ locale }: Props): ReactElement {
   const router = useRouter();
   const [modal, setModal] = React.useState(false);
   const { id, chain } = router.query;
-
+  const [stateNav, setStateNav] = React.useState({
+    checked: false,
+    navClass: "",
+  });
   const setChain = (value: Chain) => {
     dispatch({
       type: "SET_CHAIN",
@@ -42,6 +48,15 @@ export default function Nav({ locale }: Props): ReactElement {
     );
   };
 
+  const onChange = (checked: boolean) => {
+    setStateNav((v) => ({ ...v, checked }));
+    if (checked) {
+      dispatch({ type: "SET_THEME_DARK" });
+    } else {
+      dispatch({ type: "SET_THEME_LIGHT" });
+    }
+  };
+
   React.useEffect(() => {
     const value = data.chain.find(
       (f) => f.symbol.toLowerCase() === chain?.toString().toLowerCase()
@@ -55,8 +70,12 @@ export default function Nav({ locale }: Props): ReactElement {
   };
 
   React.useEffect(() => {
-    console.log(state);
-  }, [state]);
+    const element = getStorage(KEY_STORAGE.mode);
+    setStateNav((v) => ({
+      ...v,
+      checked: element === Mode.dark ? true : false,
+    }));
+  }, []);
   return (
     <>
       <nav>
@@ -65,7 +84,6 @@ export default function Nav({ locale }: Props): ReactElement {
             margin="0 8px 0 0"
             onClick={() => {
               router.push("/");
-              dispatch({ type: "SET_INITIAL" });
             }}
             color={state.chain?.theme.color}
             scale={0.8}
@@ -171,14 +189,38 @@ export default function Nav({ locale }: Props): ReactElement {
         textColor={state.chain?.theme.color}
         eventModal={(modal) => setModal(modal)}
       >
-        <Tooltip text="Github">Github</Tooltip>
-        <Switch size="small" color={state.chain?.theme.color} />
+        <Box flex alignItems="center">
+          <Tooltip text="Github">
+            {stateNav.checked ? "Dark" : "Light"} Mode
+          </Tooltip>
+          <Space />
+          <Switch
+            onChange={onChange}
+            checked={stateNav.checked}
+            size="small"
+            color={state.chain?.theme.color}
+          />
+        </Box>
+        <Box
+          style={{ marginTop: 16, paddingRight: 10 }}
+          flex
+          alignItems="center"
+        >
+          <Tooltip text="Github">Language</Tooltip>
+          <Space />
+          {locale.toUpperCase()}
+        </Box>
       </Modal>
       <style jsx>{`
         nav {
-          /* height: 44px; */
-          border-bottom: 1px solid #c7c7c7;
+          position: sticky;
+          top: 0;
+          -webkit-backdrop-filter: saturate(180%) blur(20px);
+          backdrop-filter: saturate(180%) blur(20px);
+          z-index: 10;
+          background: rgba(255, 255, 255, 0.4);
         }
+
         .ornn-nav-content {
           display: flex;
           align-items: center;

@@ -48,10 +48,9 @@ export default function Modal({
           <div className="ornn-modal-content">
             <Card
               style={{
-                width: "100%",
-                maxWidth: 418,
+                width: 400,
                 marginBottom: 16,
-                backgroundColor: "#fff",
+                paddingBottom: 11,
               }}
             >
               <Card.Header padding="16px 24px">
@@ -87,7 +86,7 @@ export default function Modal({
           height: 100vh;
           width: 100vw;
           background-color: rgba(32, 38, 45, 0.2);
-          backdrop-filter: blur(2px);
+          backdrop-filter: blur(4px);
         }
         .ornn-modal {
           margin: 60px auto auto;

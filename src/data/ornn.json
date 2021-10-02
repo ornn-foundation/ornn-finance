@@ -9,7 +9,7 @@
       "theme": {
         "color": "#627EEA",
         "textColor": "#fff",
-        "hover": "#e5eafd"
+        "hover": "rgba(98, 125, 234, 0.3)"
       }
     },
     {
@@ -21,7 +21,7 @@
       "theme": {
         "color": "#f0b90b",
         "textColor": "#fff",
-        "hover": "#fcf4e3"
+        "hover": "rgba(240, 187, 11, 0.3)"
       }
     },
     {
@@ -31,9 +31,9 @@
       "symbol": "SOL",
       "name": "Solana",
       "theme": {
-        "color": "#101921",
+        "color": "linear-gradient(220deg, rgb(112, 236, 157) 11.64%, rgb(112, 126, 255) 70.29%, rgb(129, 60, 255) 114.24%)",
         "textColor": "#fff",
-        "hover": "#eadbff"
+        "hover": "rgba(180, 91, 225, 0.5)"
       }
     },
     {
@@ -45,7 +45,7 @@
       "theme": {
         "color": "#a666ff",
         "textColor": "#fff",
-        "hover": "#eadbff"
+        "hover": "rgba(166, 102, 255, 0.3)"
       }
     },
     {
@@ -57,7 +57,7 @@
       "theme": {
         "color": "#4cdf85",
         "textColor": "#fff",
-        "hover": "#ecfcf4"
+        "hover": "rgba(76, 223, 132, 0.3)"
       }
     }
   ]

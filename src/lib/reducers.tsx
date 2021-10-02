@@ -1,3 +1,4 @@
+import { KEY_STORAGE, setStorage } from "../utils/storage";
 import {
   Action,
   initialState,
@@ -21,17 +22,17 @@ export const reducer = (
       };
     case "SET_THEME_DARK":
       document.body.classList.add("dark");
+      setStorage(KEY_STORAGE.mode, Mode.dark);
       return {
         ...state,
         mode: Mode.dark,
-        theme: themeDark,
       };
     case "SET_THEME_LIGHT":
       document.body.classList.remove("dark");
+      setStorage(KEY_STORAGE.mode, Mode.light);
       return {
         ...state,
         mode: Mode.light,
-        theme: theme,
       };
     case "SET_MODE_TOGGLE":
       return state;

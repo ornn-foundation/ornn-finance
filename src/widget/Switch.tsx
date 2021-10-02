@@ -3,13 +3,31 @@ import React, { ReactElement } from "react";
 interface Props {
   size?: "default" | "small" | "large";
   color?: string;
+  onChange?: (checked: boolean) => void;
+  checked?: boolean;
 }
 
-export default function Switch({ size, color }: Props): ReactElement {
+export default function Switch({
+  checked,
+  onChange,
+  size,
+  color,
+}: Props): ReactElement {
+  const [Switch, setSwitch] = React.useState(checked);
+  React.useEffect(() => {
+    setSwitch(checked);
+    return () => {};
+  }, [checked]);
   return (
     <>
       <label className="switch">
-        <input type="checkbox" />
+        <input
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            onChange(e.target.checked)
+          }
+          type="checkbox"
+          checked={checked}
+        />
         <span className="slider round"></span>
       </label>
       <style jsx>{`

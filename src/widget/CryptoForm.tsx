@@ -42,8 +42,6 @@ export default function CryptoForm({
             onClick={onClick}
             style={{ margin: "5px 0", zIndex: 2 }}
             type="link"
-            color="#fff"
-            textColor="#3a3637"
             icon={<img src={chain.icon} style={{ width: 20, height: 20 }} />}
           >
             {chain.symbol} <IoChevronDown style={{ marginLeft: 4 }} />

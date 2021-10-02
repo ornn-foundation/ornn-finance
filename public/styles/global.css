@@ -12,14 +12,6 @@ body {
   /* font: 400 18px/24px Google Sans, -apple-system, BlinkMacSystemFont, sans-serif; */
 }
 
-body {
-  color: #000000d9;
-  background-color: #f3f6f9;
-}
-
-.dark {
-}
-
 .overflow-hidden {
   overflow: hidden !important;
 }
@@ -36,11 +28,129 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  box-shadow: rgb(238 234 244) 0px 0px 5px inset;
+  /* box-shadow: rgb(238 234 244) 0px 0px 5px inset; */
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #ff92a5;
+  background: #4d4d4d;
   border-radius: 8px;
+}
+
+:root {
+  --ornn-background-color: #ffffff;
+  --ornn-background-color-rgb: 255, 255, 255;
+
+  --ornn-text-color: #000000;
+  --ornn-text-color-rgb: 0, 0, 0;
+
+  --ornn-color-step-50: #f2f2f2;
+  --ornn-color-step-100: #e6e6e6;
+  --ornn-color-step-150: #d9d9d9;
+  --ornn-color-step-200: #cccccc;
+  --ornn-color-step-250: #bfbfbf;
+  --ornn-color-step-300: #b3b3b3;
+  --ornn-color-step-350: #a6a6a6;
+  --ornn-color-step-400: #999999;
+  --ornn-color-step-450: #8c8c8c;
+  --ornn-color-step-500: #808080;
+  --ornn-color-step-550: #737373;
+  --ornn-color-step-600: #666666;
+  --ornn-color-step-650: #595959;
+  --ornn-color-step-700: #4d4d4d;
+  --ornn-color-step-750: #404040;
+  --ornn-color-step-800: #333333;
+  --ornn-color-step-850: #262626;
+  --ornn-color-step-900: #191919;
+  --ornn-color-step-950: #0d0d0d;
+}
+
+body.dark {
+  --ornn-background-color: #000000;
+  --ornn-background-color-rgb: 0, 0, 0;
+
+  --ornn-text-color: #ffffff;
+  --ornn-text-color-rgb: 255, 255, 255;
+
+  --ornn-color-step-50: #0d0d0d;
+  --ornn-color-step-100: #1a1a1a;
+  --ornn-color-step-150: #262626;
+  --ornn-color-step-200: #333333;
+  --ornn-color-step-250: #404040;
+  --ornn-color-step-300: #4d4d4d;
+  --ornn-color-step-350: #595959;
+  --ornn-color-step-400: #666666;
+  --ornn-color-step-450: #737373;
+  --ornn-color-step-500: #808080;
+  --ornn-color-step-550: #8c8c8c;
+  --ornn-color-step-600: #999999;
+  --ornn-color-step-650: #a6a6a6;
+  --ornn-color-step-700: #b3b3b3;
+  --ornn-color-step-750: #bfbfbf;
+  --ornn-color-step-800: #cccccc;
+  --ornn-color-step-850: #d9d9d9;
+  --ornn-color-step-900: #e6e6e6;
+  --ornn-color-step-950: #f2f2f2;
+
+  --ornn-item-background: #000000;
+
+  --ornn-card-background: #1c1c1d;
+}
+
+body {
+  transition: 0.1s;
+  color: var(--ornn-text-color);
+  background-color: var(--ornn-background-color);
+  /* background-color: #f3f6f9; */
+}
+
+body.dark {
+  color: var(--ornn-text-color);
+  transition: 0.1s;
+  background-color: var(--ornn-background-color);
+}
+
+body.dark .ornn-card {
+  background-color: var(--ornn-card-background);
+}
+
+body.dark .ornn-menu-dropdown,
+.mask {
+  background-color: var(--ornn-background-color) !important;
+}
+
+body.dark .circle {
+  border: 3.5px solid var(--ornn-background-color) !important;
+}
+
+body.dark .ornn-card,
+.ornn-menu-dropdown {
+  border: 1px solid var(--ornn-color-step-200) !important;
+}
+
+body.dark nav {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+body.dark .ornn-card-header {
+  border-bottom: 1px solid var(--ornn-color-step-200) !important;
+}
+
+body.dark .ornn-crypto-form {
+  background-color: #06070a;
+}
+
+body.dark .ornn-coin-title,
+.ornn-bt,
+input {
+  color: var(--ornn-text-color);
+}
+
+body.dark .ornn-coin-title {
+  color: var(--ornn-color-step-900);
+}
+
+body.dark .text-tooltip {
+  color: #000 !important;
+  background-color: var(--ornn-color-step-950) !important;
 }

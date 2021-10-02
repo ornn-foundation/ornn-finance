@@ -72,15 +72,12 @@ export default function Swap({ query, locale }: Props): ReactElement {
             maxWidth: 418,
             marginTop: 60,
             marginBottom: 16,
-            backgroundColor: "#fff",
           }}
         >
           <Display display={stateSwap.display === "exchange"}>
             <Card.Header>
               <Box flex>
-                <span style={{ fontSize: 18, fontWeight: "bold" }}>
-                  Exchange
-                </span>
+                <h2 style={{ fontWeight: "bold" }}>Exchange</h2>
                 <Space />
                 <Tooltip text="Refash">
                   <LinkIcon
@@ -150,10 +147,10 @@ export default function Swap({ query, locale }: Props): ReactElement {
                   }));
                 }}
               />
-              <div style={{ display: "flex", margin: "8px" }}>
-                <span style={{ fontSize: 12 }}>Fee</span>
+              <div style={{ display: "flex", margin: "0px 8px" }}>
+                <p style={{ fontSize: 14 }}>Fee</p>
                 <Space />
-                <span style={{ fontSize: 12 }}>0.1%</span>
+                <p style={{ fontSize: 14 }}>0.1%</p>
               </div>
               <Button
                 expand="block"

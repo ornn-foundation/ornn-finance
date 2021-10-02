@@ -69,7 +69,8 @@ export default function Button({
             : color
             ? color
             : "#ff647f"};
-          color: ${textColor ? textColor : contrastYIQ(color || "#ffffff")};
+          /* ${textColor ? "color: textColor !important" : ""} */
+          color: ${textColor ? textColor : ""};
           transition: 0.3s;
           font-weight: 500;
           margin-left: 0px;

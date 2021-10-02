@@ -54,7 +54,7 @@ export default function Logo({
         .mask {
           width: 5px;
           height: 5px;
-          background: #fff;
+          background-color: #fff;
           border-radius: 50px;
           position: absolute;
           bottom: 7px;

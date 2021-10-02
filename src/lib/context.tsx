@@ -85,7 +85,7 @@ export const initialChain: Chain = {
   icon: "",
   theme: {
     color: "#FFC0CB",
-    hover: "#fff3fe",
+    hover: "rgba(255, 192, 203, 0.3)",
     textColor: "#0e1318",
   },
 };

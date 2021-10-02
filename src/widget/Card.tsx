@@ -14,8 +14,9 @@ function Card({ children, style }: Props): ReactElement {
       <style jsx>{`
         .ornn-card {
           border-radius: 24px;
-          border: 1px solid rgb(229, 232, 236);
+          border: 1px solid #e5e8ec;
           width: fit-content;
+          background-color: #fff;
           /* box-shadow: rgba(255, 237, 244, 0.5) 0px 6px 24px 0px,
             rgb(229, 232, 236) 0px 0px 0px 1px; */
           /* box-shadow: 0 12px 24px #ffedf4; */
@@ -35,8 +36,8 @@ function Header({ children, padding }: PropsHeader): ReactElement {
       <div className="ornn-card-header">{children}</div>
       <style jsx>{`
         .ornn-card-header {
+          border-bottom: 1px solid #e5e8ec;
           padding: ${padding ? padding : "24px"};
-          border-bottom: 1px solid #eeeeee;
         }
       `}</style>
     </>
