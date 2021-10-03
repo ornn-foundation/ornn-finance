@@ -70,11 +70,11 @@ export default function Switch({
         }
 
         input:checked + .slider {
-          background-color: ${color ? color : "#2196f3"};
+          background-color: ${color && color.length <= 7 ? color : "#2196f3"};
         }
 
         input:focus + .slider {
-          box-shadow: 0 0 1px ${color ? color : "#2196f3"};
+          box-shadow: 0 0 1px ${color && color.length <= 7 ? color : "#2196f3"};
         }
 
         input:checked + .slider:before {

@@ -25,6 +25,7 @@ export default function Home({ locale }: Props): ReactElement {
             Trade Perpetual Contracts with low fees, deep liquidity, and up to
             25× more Buying Power. Deposit just $10 to get started
           </p>
+          <br />
         </div>
         <Card
           style={{

@@ -5,7 +5,7 @@ import { Context } from "../src/lib/context";
 
 interface Props extends I18n {}
 
-export default function Pools({ locale }: Props): ReactElement {
+export default function Trade({ locale }: Props): ReactElement {
   const { state, dispatch } = React.useContext(Context);
   React.useEffect(() => {
     dispatch({ type: "SET_INITIAL" });
@@ -22,7 +22,7 @@ export default function Pools({ locale }: Props): ReactElement {
           justifyContent: "center",
         }}
       >
-        Pools coming soon
+        Trade coming soon
       </Content>
     </>
   );

@@ -31,7 +31,7 @@
       "symbol": "SOL",
       "name": "Solana",
       "theme": {
-        "color": "linear-gradient(220deg, rgb(112, 236, 157) 11.64%, rgb(112, 126, 255) 70.29%, rgb(129, 60, 255) 114.24%)",
+        "color": "linear-gradient(220deg, rgb(112, 236, 157) 11.64%, rgb(112, 126, 255) 70.29%, rgba(180, 91, 225) 114.24%)",
         "textColor": "#fff",
         "hover": "rgba(180, 91, 225, 0.5)"
       }

@@ -91,10 +91,19 @@ export default function Nav({ locale }: Props): ReactElement {
           <div className="ornn-display-menu">
             <Link
               onClick={() => {
+                router.push(`/${locale}/trade`);
+              }}
+              color={state.chain.theme.hover}
+              style={{ marginLeft: 5, fontSize: 14 }}
+            >
+              Trade
+            </Link>
+            <Link
+              onClick={() => {
                 router.push(`/${locale}/swap/eth/bnb`);
               }}
               color={state.chain.theme.hover}
-              style={{ marginLeft: 5 }}
+              style={{ marginLeft: 5, fontSize: 14 }}
             >
               Swap
             </Link>
@@ -103,7 +112,7 @@ export default function Nav({ locale }: Props): ReactElement {
                 router.push(`/${locale}/pools`);
               }}
               color={state.chain.theme.hover}
-              style={{ marginLeft: 5 }}
+              style={{ marginLeft: 5, fontSize: 14 }}
             >
               Pools
             </Link>
@@ -112,7 +121,7 @@ export default function Nav({ locale }: Props): ReactElement {
                 router.push(`/${locale}/farms`);
               }}
               color={state.chain.theme.hover}
-              style={{ marginLeft: 5 }}
+              style={{ marginLeft: 5, fontSize: 14 }}
             >
               Farms
             </Link>
@@ -121,7 +130,7 @@ export default function Nav({ locale }: Props): ReactElement {
                 router.push(`/${locale}/liquidity`);
               }}
               color={state.chain.theme.hover}
-              style={{ marginLeft: 5 }}
+              style={{ marginLeft: 5, fontSize: 14 }}
             >
               Liquidity
             </Link>
@@ -130,7 +139,7 @@ export default function Nav({ locale }: Props): ReactElement {
                 router.push(`/${locale}/staking`);
               }}
               color={state.chain.theme.hover}
-              style={{ marginLeft: 5 }}
+              style={{ marginLeft: 5, fontSize: 14 }}
             >
               Staking
             </Link>
@@ -225,7 +234,7 @@ export default function Nav({ locale }: Props): ReactElement {
           display: flex;
           align-items: center;
           margin: 0 auto;
-          max-width: 980px;
+          /* max-width: 980px; */
           height: 100%;
           padding: 8px 22px;
         }
