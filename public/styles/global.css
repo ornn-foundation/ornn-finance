@@ -23,20 +23,6 @@ body {
   user-select: none; /* Likely future */
 }
 
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  /* box-shadow: rgb(238 234 244) 0px 0px 5px inset; */
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #4d4d4d;
-  border-radius: 8px;
-}
-
 :root {
   --ornn-background-color: #ffffff;
   --ornn-background-color-rgb: 255, 255, 255;
@@ -95,6 +81,20 @@ body.dark {
   --ornn-item-background: #000000;
 
   --ornn-card-background: #1c1c1d;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  /* box-shadow: rgb(238 234 244) 0px 0px 5px inset; */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--ornn-color-step-350);
+  border-radius: 8px;
 }
 
 body {

@@ -6,6 +6,7 @@ import { Space } from ".";
 
 interface Props {
   chain: Chain;
+  color?: string;
   value?: string;
   title?: string;
   placeholder?: string;
@@ -18,6 +19,7 @@ export default function CryptoForm({
   value = "0.0",
   placeholder = "0.0",
   chain,
+  color,
   onClick,
   eventValue,
 }: Props): ReactElement {
@@ -42,6 +44,7 @@ export default function CryptoForm({
             onClick={onClick}
             style={{ margin: "5px 0", zIndex: 2 }}
             type="link"
+            color={color}
             icon={<img src={chain.icon} style={{ width: 20, height: 20 }} />}
           >
             {chain.symbol} <IoChevronDown style={{ marginLeft: 4 }} />

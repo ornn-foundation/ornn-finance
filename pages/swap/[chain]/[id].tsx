@@ -114,6 +114,7 @@ export default function Swap({ query, locale }: Props): ReactElement {
                       chain?.toString()?.toLowerCase()
                   ) || data.chain[0]
                 }
+                color={state.chain?.theme.hover}
                 value={stateSwap.swap.form}
                 title="Form"
                 eventValue={(value: string) => {
@@ -135,6 +136,7 @@ export default function Swap({ query, locale }: Props): ReactElement {
                       f.symbol.toLowerCase() === id?.toString()?.toLowerCase()
                   ) || data.chain[3]
                 }
+                color={state.chain?.theme.hover}
                 value={stateSwap.swap.to}
                 title="To"
                 eventValue={(value: string) => {
