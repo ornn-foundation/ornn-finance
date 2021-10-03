@@ -61,7 +61,6 @@ export default function Nav({ locale }: Props): ReactElement {
     const value = data.chain.find(
       (f) => f.symbol.toLowerCase() === chain?.toString().toLowerCase()
     );
-    console.log(value);
     if (value) setChain(value);
   }, [chain]);
 

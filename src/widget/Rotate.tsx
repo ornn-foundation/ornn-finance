@@ -13,7 +13,6 @@ export default function Rotate({ style, children }: Props): ReactElement {
     className: "rotate",
   });
   const onClick = (cs: string) => {
-    console.log(cs);
     setState((v) => ({
       ...v,
       className: "rotate open",

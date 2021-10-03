@@ -21,7 +21,6 @@ export default function InfiniteScroll({
     )
       return;
     eventScroll(true);
-    console.log("Fetch more list items!");
   }
 
   return <div>{children}</div>;
