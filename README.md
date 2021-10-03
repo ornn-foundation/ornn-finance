@@ -5,7 +5,7 @@
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
 [circleci-url]: https://circleci.com/gh/nestjs/nest
 
-<p align="center">
+<!-- <p align="center">
   <a aria-label="Vercel logo" href="https://vercel.com">
     <img src="https://img.shields.io/badge/MADE%20BY%20Vercel-000000.svg?style=for-the-badge&logo=Vercel&labelColor=000">
   </a>
@@ -18,7 +18,7 @@
   <a aria-label="Join the community on GitHub" href="https://github.com/vercel/next.js/discussions">
     <img alt="" src="https://img.shields.io/badge/Join%20the%20community-blueviolet.svg?style=for-the-badge&logo=Next.js&labelColor=000000&logoWidth=20">
   </a>
-</p>
+</p> -->
 
 <p align="center">
    <a aria-label="Ornn Finance" href="https://ornn-finance.netlify.app/">
