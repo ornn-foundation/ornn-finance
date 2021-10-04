@@ -110,12 +110,21 @@ body.dark {
   background-color: var(--ornn-background-color);
 }
 
-body.dark .ornn-card {
-  background-color: var(--ornn-card-background);
+body.dark .ornn-gooey {
+  background: var(--ornn-background-color) !important;
 }
 
-body.dark .ornn-menu-dropdown,
-.mask {
+body.dark .ornn-dot,
+.dot-span {
+  background: var(--ornn-text-color) !important;
+}
+
+body.dark .ornn-card,
+.ornn-menu-dropdown {
+  background-color: var(--ornn-card-background) !important;
+}
+
+body.dark .mask {
   background-color: var(--ornn-background-color) !important;
 }
 
