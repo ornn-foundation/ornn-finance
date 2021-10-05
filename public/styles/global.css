@@ -108,6 +108,10 @@ body {
   /* background-color: #f3f6f9; */
 }
 
+.bar-of-progress {
+  z-index: 16001;
+}
+
 body.dark {
   color: var(--ornn-text-color);
   transition: 0.1s;
