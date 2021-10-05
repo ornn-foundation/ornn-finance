@@ -34,10 +34,10 @@ export default function Modal({
   React.useEffect(() => {
     setState((e) => ({ ...e, modal }));
     if (modal) {
-      document.body.classList.add("overflow-hidden");
+      document.body.classList.add("hidden-overflow");
       setState((e) => ({ ...e, ornnmodal: "ornn-backdrop active" }));
     } else {
-      document.body.classList.remove("overflow-hidden");
+      document.body.classList.remove("hidden-overflow");
       setState((e) => ({ ...e, ornnmodal: "ornn-backdrop out" }));
     }
   }, [modal]);

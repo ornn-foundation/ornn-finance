@@ -12,7 +12,11 @@ body {
   /* font: 400 18px/24px Google Sans, -apple-system, BlinkMacSystemFont, sans-serif; */
 }
 
-.overflow-hidden {
+.hidden-overflow {
+  overflow: hidden !important;
+}
+
+.hidden {
   overflow: hidden !important;
 }
 
@@ -124,7 +128,8 @@ body.dark .ornn-card,
   background-color: var(--ornn-card-background) !important;
 }
 
-body.dark .mask {
+body.dark .mask,
+.ornn-loader-backdrop {
   background-color: var(--ornn-background-color) !important;
 }
 
